@@ -1,0 +1,229 @@
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+html{
+  background: linear-gradient(#042a1b, #030c08);
+  background-repeat: no-repeat;
+  background-size: auto;
+}
+body{
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+header h1{
+  color: #fff;
+  font-size: 2rem;
+}
+
+header h1 span{
+  display: inline-block;
+  background: linear-gradient(135deg,#021d13, #0d5337);
+  border: 1px solid #238a61;
+  padding: 0 .1rem;
+}
+header h1 span.ba{
+  background: linear-gradient(135deg, #0d5337,#021d13);
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search input{
+  width: 350px;
+  height: 30px;
+  padding: .5rem;
+  border-radius: .2rem;
+  outline: none;
+  border: none;
+}
+
+.search input:focus{
+  border: 1px solid #52967a;
+}
+
+.loader{
+  margin: 1rem auto;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  border: 3px solid #52967a;
+  border-left: 3px solid transparent;
+  animation: loader 1s infinite linear;
+  /* animation-direction: linear; */
+}
+.character-list-container{
+  width: 60%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  gap: .7rem;
+  flex-wrap: wrap;
+}
+
+.character-list-container h2{
+  font-size: 1.7rem;
+  color: #ac2020;
+}
+
+.character-container{
+  position: relative;
+  width: 10rem;
+  height: 14rem;
+  cursor: pointer;
+}
+.card{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition : all 1s ease;
+}
+
+.character-container:hover > .card{
+  transform: rotateY(.5turn);
+}
+
+.card-front,
+.card-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card-back{
+  transform: rotateY(.5turn);
+  background: #333;
+  padding: .5rem;
+  color: #fff;
+}
+.card-back h1{
+  border-bottom: 1px solid #ddd;
+  font-size: 1rem;
+}
+.card-back p{
+  font-size: .8rem;
+}
+
+.individual-character{
+  margin: 1rem auto;
+  border-radius: .5rem;
+  padding: 2rem;
+  height: 30rem;
+  gap: 2rem;
+  width: 60%;
+  background-color: #10583b;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.individual-character-avatar img{
+  border-radius: .5rem;
+  width: 100%;
+  height: 100%;
+}
+.individual-character-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  gap: .5rem;
+}
+.individual-character-info h1{
+  font-size: 2.5rem;
+  color: #ddd;
+  text-align: center;
+}
+.individual-character-info p{
+  font-size: 1.5rem;
+  color: #ccc;
+  text-align: left;
+}
+.individual-character .back{
+  position: absolute;
+  background:rgb(11, 82, 53);
+  color: #eee;
+  left: 1rem;
+  top: 1rem;
+  padding: .2rem .5rem;
+  cursor: pointer;
+}
+
+.pagination{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: .5rem auto;
+  gap: .5rem;
+}
+.pagination button{
+  padding: .2rem .5rem;
+  border-radius: .1rem;
+  background:rgb(11, 82, 53);
+  color: #ddd;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination button.active-page{
+  background: #021d13;
+  border: 2px solid #238a61;
+}
+
+@keyframes loader {
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+
+@media only screen and (max-width:1300px){
+  .character-list-container{
+    width: 75%;
+  }
+  .individual-character{
+    width: 75%;
+  }
+}
+@media only screen and (max-width:1123px){
+  .character-list-container{
+    width: 90%;
+  }
+  .individual-character{
+    width: 90%;
+  }
+}
+@media only screen and (max-width:700px){
+  .character-list-container{
+    width: 100%;
+  }
+  .individual-character{
+    width: 100%;
+  }
+}
+@media only screen and (max-width:680px){
+  .individual-character{
+    flex-direction: column;
+    height: auto;
+  }
+  .individual-character-avatar{
+  padding: 1rem;
+  height: 22rem;
+  width: 20rem;
+  }
+}
+@media only screen and (max-width:375px){
+  .search input{
+    width: 250px;
+  }
+}
